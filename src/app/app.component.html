@@ -1,0 +1,57 @@
+<div class="wrapper">
+    <div class="header">
+        <h1>HttpClientModul Example:</h1>
+    </div>
+
+
+    <div class="userContainer">
+        <h3>
+            List of Users:
+        </h3>
+        <div *ngIf="users$ | async as users">
+            <div *ngFor="let user of users">
+                <mat-card (click)="getUserPosts(user.id)">
+                    <a>ID: {{ user.id }}</a>
+                    <br/> Name: {{user.name}}
+                    <br/> Email: {{user.email}}
+                </mat-card>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="userPostsContainer">
+
+        <h3>
+            List of User {{ selectUser }} Posts:
+        </h3>
+
+        <div *ngIf="posts$ | async as posts; else notSelected">
+            <div *ngFor="let post of posts">
+
+                <mat-card>
+                    <a> ID: {{ post.userId }}</a>
+                    <br/> #: {{ post.id }}
+                    <br/> Title: {{post.title}}
+                    <br/>
+                    <div class="post-body"> <a>Post:</a> {{post.body}}</div>
+                </mat-card>
+
+            </div>
+
+
+        </div>
+
+        <ng-template #notSelected>
+            <h3 id="notSelected">
+                Click on a user to see their posts
+            </h3>
+        </ng-template>
+
+    </div>
+
+</div>
+
+
+<router-outlet></router-outlet>

@@ -1,0 +1,51 @@
+.wrapper {
+    padding: 0 2rem;
+    display: grid;
+    max-width: 1400px;
+    margin: auto;
+    grid-row-gap: 2em;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50px 1fr;
+    grid-template-areas: "header header" "userContainer userPostsContainer";
+}
+
+.header {
+    grid-area: header;
+    text-align: center;
+    font-style: italic;
+}
+
+.userPostsContainer {
+    grid-area: userPostsContainer;
+    h3 {
+        text-align: center;
+    }
+}
+
+.userContainer {
+    grid-area: userContainer;
+    h3 {
+        text-align: center;
+    }
+}
+
+mat-card {
+    margin: 2rem;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px !important;
+    line-height: 1.5em;
+    a {
+        font-weight: bold;
+    }
+    // !important;
+}
+
+.post-body {
+    margin-top: 2em;
+    line-height: normal;
+}
+
+#notSelected {
+    text-align: center;
+    text-decoration: underline;
+}
